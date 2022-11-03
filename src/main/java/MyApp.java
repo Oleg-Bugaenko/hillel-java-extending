@@ -4,23 +4,22 @@ import java.util.List;
 public class MyApp {
     public static void main(String[] args) {
         Animal[] animals = {
-                new Dog("Sharik", 500, 20),
-                new Cat("Murka", 30, 0),
-                new Dog("Wolf", 1500, 200),
-                new Cat("Barsik", 100, 10 ),
-                new Cat("Hooligan", 200, 20)
+                new Dog("Sharik"),
+                new Dog("Wolf"),
+                new Cat("Barsik"),
+                new Cat("Hooligan")
         };
 
-
         //let's start the competition
-        System.out.println("Початок змагань ");
-        System.out.println(" в змаганнях приймають участь \n " + Cat.getCount() + " котів \n " + Dog.getCount() + " собак");
+        System.out.println("В змаганнях приймають участь - " + Animal.getCountAllAnimals() + " тварин(и):" +
+                "\n " + Cat.getCount() + " - котів \n " + Dog.getCount() + " - собак");
+        System.out.println("Початок змагань!");
 
         //running track
-        System.out.println("1. бігова доріжка");
-        List<Integer> rollingDistance = Arrays.asList(10, 100, 500, 1000, 1500);
+        System.out.println(" 1. біг");
+        List<Integer> rollingDistance = Arrays.asList(100, 200, 500);
         for (Integer distance : rollingDistance) {
-            System.out.println("відстань " + distance + " метрів");
+            System.out.println("- відстань " + distance + " метрів");
             for (int i = 0; i < animals.length; i++) {
                 animals[i].scopeRunning(distance);
             }
@@ -30,18 +29,15 @@ public class MyApp {
         System.out.println("ЗМАГАННЯ З БІГУ ЗАКІНЧЕНІ \n");
 
         //running pool
-        System.out.println("2. басейн");
-        List<Integer> poolDistance = Arrays.asList(10, 20, 100);
-        for (Integer distance : poolDistance) {
-            System.out.println("відстань " + distance + " метрів");
+        System.out.println(" 2. плавання");
+        List<Integer> swimmingDistance = Arrays.asList(10, 20);
+        for (Integer distance : swimmingDistance) {
+            System.out.println("- відстань " + distance + " метрів");
             for (int i = 0; i < animals.length; i++) {
                 animals[i].scopeSwimming(distance);
             }
             System.out.println("--------------------------------");
         }
-
-        //
-
 
     }
 }

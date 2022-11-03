@@ -1,31 +1,34 @@
 public class Cat extends Animal{
     private String name;
-    private static int count = 0;
+    private static final int MAX_ROLLING_DISTANCE = 200;
+    private static final int MAX_SWIMMING_DISTANCE = 0;
+    private static int countCats = 0;
 
 
-    public Cat(String name, int rollingDistance, int swimmingDistance) {
-        super(rollingDistance, swimmingDistance);
+    public Cat(String name) {
         this.name = name;
-        count += 1;
+        countCats += 1;
     }
 
     public static int getCount() {
-        return count;
+        return countCats;
     }
 
     @Override
     public void scopeRunning(int distance) {
-        if (distance <= this.getRollingDistance()) {
+        if (distance <= MAX_ROLLING_DISTANCE) {
             System.out.println("Кіт " + name + " зміг пробігти " + distance + " метрів.");
         } else System.out.println("Кіт " + name + " не може пробігти " + distance + " метрів.");
     }
 
+
     @Override
     public void scopeSwimming(int distance) {
-        if (this.getSwimmingDistance() == 0) {
+        if (MAX_SWIMMING_DISTANCE == 0) {
             System.out.println("Кіт " + name + " не вміє плавати!");
-        } else if(distance <= this.getSwimmingDistance()) {
-            System.out.println("Кіт " + name + " проплив " + distance + " метрів.");
+        } else if (distance <= MAX_SWIMMING_DISTANCE) {
+            System.out.println("Кіт " + name + " зміг пропливти " + distance + " метрів.");
         } else System.out.println("Кіт " + name + " не може пропливти " + distance + " метрів.");
+
     }
 }

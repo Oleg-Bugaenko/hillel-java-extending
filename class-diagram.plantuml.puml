@@ -1,0 +1,41 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+
+class MyApp {
+    *main(String[] args)
+}
+
+abstract class Animal {
+    countAllAnimals: int
+
+    *scopeRunning (int distance)
+    *scopeSwimming (int distance)
+}
+
+class Dog {
+    name: String
+    MAX_ROLLING_DISTANCE: int
+    MAX_SWIMMING_DISTANCE: int
+    countDogs: int
+
+    *getCount()
+    *scopeRunning (int distance)
+    *scopeSwimming (int distance)
+}
+
+class Cat {
+name: String
+    MAX_ROLLING_DISTANCE: int
+    MAX_SWIMMING_DISTANCE: int
+    countCats: int
+
+    *getCount()
+    *scopeRunning (int distance)
+    *scopeSwimming (int distance)
+}
+
+Animal <|-- Dog
+Animal <|-- Cat
+
+@enduml

@@ -1,19 +1,12 @@
 public abstract class Animal {
+    private static int countAllAnimals = 0;
 
-    private int rollingDistance;
-    private int swimmingDistance;
-
-    public Animal(int rollingDistance, int swimmingDistance) {
-        this.rollingDistance = rollingDistance;
-        this.swimmingDistance = swimmingDistance;
+    public Animal() {
+        countAllAnimals += 1;
     }
 
-    public int getRollingDistance() {
-        return rollingDistance;
-    }
-
-    public int getSwimmingDistance() {
-        return swimmingDistance;
+    public static int getCountAllAnimals() {
+        return countAllAnimals;
     }
 
     public abstract void scopeRunning (int distance);

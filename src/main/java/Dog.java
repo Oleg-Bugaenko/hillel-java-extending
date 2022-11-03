@@ -1,30 +1,29 @@
 public class Dog extends Animal{
     private String name;
-    private static int count;
+    private static final int MAX_ROLLING_DISTANCE = 500;
+    private static final int MAX_SWIMMING_DISTANCE = 10;
+    private static int countDogs = 0;
 
 
-    public Dog(String name, int rollingDistance, int swimmingDistance) {
-        super(rollingDistance, swimmingDistance);
+    public Dog(String name) {
         this.name = name;
-        count += 1;
+        countDogs += 1;
     }
 
     public static int getCount() {
-        return count;
+        return countDogs;
     }
 
     @Override
     public void scopeRunning(int distance) {
-        if (distance <= this.getRollingDistance()) {
+        if (distance <= MAX_ROLLING_DISTANCE) {
             System.out.println("Пес " + name + " зміг пробігти " + distance + " метрів.");
         } else System.out.println("Пес " + name + " не може пробігти " + distance + " метрів.");
     }
 
     @Override
     public void scopeSwimming(int distance) {
-        if (this.getSwimmingDistance() == 0) {
-            System.out.println("Пес " + name + " не вміє плавати!");
-        } else if(distance <= this.getSwimmingDistance()) {
+        if(distance <= MAX_SWIMMING_DISTANCE) {
             System.out.println("Пес " + name + " проплив " + distance + " метрів.");
         } else System.out.println("Пес " + name + " не може пропливти " + distance + " метрів.");
     }
